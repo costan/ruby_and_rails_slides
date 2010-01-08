@@ -1,0 +1,30 @@
+pwnage:~ victor$ ssh costan@linux.mit.edu
+dr-wily:~> scripts-rails six470prep
+Please enter either '1' or '2' (without quotes): 1
+Desired address: http://costan.scripts.mit.edu/sixprep
+Press [enter] to continue with the install.
+
+Firefox > http://costan.scripts.mit.edu/sixprep/
+
+pwnage:~ victor$ cd Documents/workspace
+pwnage:workspace victor$ scp -r costan@linux.mit.edu:~/web_scripts/sixprep .
+pwnage:workspace victor$ cd sixprep/
+pwnage:sixprep victor$ rake rails:freeze:edge RELEASE=2.3.5
+
+pwnage:workspace victor$ scp -r . costan@linux.mit.edu:~/web_scripts/sixprep
+
+dr-wily:~> ssh -k costan@scripts
+
+
+
+Eclipse > File > New > Project ... > Rails Project
+Project name: sixprep
+Uncheck "Generate Rails application skeleton"
+(optional) Uncheck "automatically start server after project is created"
+
+
+
+Your application is located in:
+  /mit/costan/web_scripts/sixprep/
+To run programs like rake or script/generate, run
+  'ssh -k costan@scripts' and cd to the above directory.

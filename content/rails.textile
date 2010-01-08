@@ -1,0 +1,17 @@
+h1. Rails: the Web Application Framework
+
+h1. Obligatory Show-Off
+
+* This video is used by everyone to show Rails' awesomeness
+* How to build a blog, in 15 minutes
+
+http://media.rubyonrails.org/video/rails_blog_2.mov
+
+
+h1. Working with Scripts
+
+
+h1. Resources
+
+Quick Introduction to Ruby: "Google why's poignant guide to ruby":http://www.google.com/search?q=why's+poignant+guide+to+ruby
+Rails Guides: "http://guides.rubyonrails.org/":http://guides.rubyonrails.org/

@@ -1,0 +1,427 @@
+>> 5
+=> 5
+>> 1e3
+=> 1000.0
+>> 5 * 100
+=> 500
+>> 5 ** 3
+=> 125
+>> 5 / 2
+=> 2
+>> 5.0 / 2
+=> 2.5
+
+>> "abcd"
+=> "abcd"
+>> "abcd" + "efgh"
+=> "abcdefgh"
+>> "abc" * 3
+=> "abcabcabc"
+>> "I have #{3 * 3} apples."
+=> "I have 9 apples."
+
+>> 3 > 5
+=> false
+>> 5 < 5
+=> false
+>> 3 < 5
+=> true
+>> !true
+=> false
+>> (3 < 5) || (3 > 5)
+=> true
+>> (3 < 5) && (3 > 5)
+=> false
+
+>> leet = 1337
+=> 1337
+>> i_am_leet = "I am #{leet}"
+=> "I am 1337"
+>> i_am_leet
+=> "I am 1337"
+
+>> PI = 3.141592
+=> 3.141592
+>> PI
+=> 3.141592
+>> PI = 6.28
+(irb):176: warning: already initialized constant PI
+=> 6.28
+>> PI
+=> 6.28
+>> PI = 3.141592
+(irb):178: warning: already initialized constant PI
+=> 3.141592
+>> PI
+=> 3.141592
+
+>> def sum(a, b)
+>>   return a + b;
+?> end
+=> nil
+>> sum(3, 5)
+=> 8
+>> def sum(a, b)
+>>   a + b
+>> end
+(irb):30: warning: method redefined; discarding old sum
+=> nil
+>> sum(3, 5)
+=> 8
+>> sum 3, 5
+=> 8
+
+>> print "Quack"
+Quack=> nil
+>> print "Quack\n"
+Quack
+=> nil
+>> print 3
+3=> nil
+>> p 3
+3
+=> nil
+
+>> class Duck
+>>   def quack
+>>     "quack"
+>>   end
+>> end
+=> nil
+>> duckie = Duck.new
+=> #<Duck:0x1015d7350>
+>> duckie.quack
+=> "quack"
+>> class Duck
+>>   def walk
+>>     print "I am walking\n"
+>>   end
+>> end
+=> nil
+>> duckie.walk
+I am walking
+=> nil
+
+>> class Duck
+>>   def initialize
+>>     print "A new duck is born!\n"
+>>   end
+>> end
+(irb):227: warning: method redefined; discarding old initialize
+=> nil
+>> duckie = Duck.new
+A new duck is born!
+=> #<Duck:0x101222bd8>
+
+>> class Duck
+>>   def initialize(name)
+>>     @name = name
+>>     @age = 0
+>>   end
+>> end
+=> nil
+>> donald = Duck.new
+ArgumentError: wrong number of arguments (0 for 1)
+  from (irb):89:in `initialize'
+  from (irb):89:in `new'
+  from (irb):89
+>> donald = Duck.new 'Donald Duck'
+=> #<Duck:0x1014fdad8 @name="Donald Duck", @age=0>
+>> print donald
+#<Duck:0x1014fdad8>=> nil
+>> p donald
+#<Duck:0x1014fdad8 @name="Donald Duck", @age=0>
+=> nil
+>> donald.name
+NoMethodError: undefined method `name' for #<Duck:0x101533ae8 @name="Donald Duck">
+  from (irb):94
+>> class Duck
+>>   def name
+>>     @name
+>>   end
+>> end
+=> nil
+>> donald.name
+=> "Donald Duck"
+>> @name
+(irb):102: warning: instance variable @name not initialized
+=> nil
+>> donald.@name
+SyntaxError: compile error
+(irb):103: syntax error, unexpected tIVAR
+  from (irb):103
+(irb):105: warning: method redefined; discarding old initialize
+
+>> 3.even?
+=> false
+>> "abcd".length
+=> 4
+>> i_am_leet.length
+=> 9
+
+>> 3.class
+=> Fixnum
+>> class Fixnum
+>>   def is_leet?
+>>     self == 1337
+>>   end
+>> end
+=> nil
+>> 3.is_leet?
+=> false
+>> 1337.is_leet?
+=> true
+
+>> a, b = 3, 5
+=> [3, 5]
+>> if a > b
+>>   a
+>> else
+?>   b
+>> end
+=> 5
+>> (a > b) ? a : b
+=> 5
+
+>> i = 0
+=> 0
+>> while i < 5
+>>   i += 1
+>>   print "#{i}\n"
+>> end
+1
+2
+3
+4
+5
+=> nil
+
+>> 5.times { print "Hello\n" }
+Hello
+Hello
+Hello
+Hello
+Hello
+=> 5
+>> 1.upto(5) { |i| print "#{i}\n" }
+1
+2
+3
+4
+5
+=> 1
+>> i = 1
+=> 1
+>> loop do
+?>   print "#{i}\n"
+>>   i += 1
+>>   break if i == 5
+>> end
+1
+2
+3
+4
+=> nil
+
+>> class Duck
+>>   def introduce
+>>     string = yield @name, @age
+>>     print "[#{name}]: #{string}\n"
+>>   end
+>> end
+=> nil
+>> donald.introduce
+LocalJumpError: no block given
+  from (irb):118:in `introduce'
+  from (irb):122
+>> donald.introduce { |name, age| next "I am #{name} and I am #{age} years old." }
+[Donald Duck]: I am Donald Duck and I am 0 years old.
+=> nil
+>> donald.introduce { |name, age| "I am #{name} and I am #{age} years old." }
+[Donald Duck]: I am Donald Duck and I am 0 years old.
+=> nil
+>> donald.introduce { |name, age| break }
+=> nil
+
+>> :cool
+=> :cool
+>> :cool.to_s
+=> "cool"
+>> :cool.to_i
+=> 30185
+>> :to_i.to_i
+=> 3345
+>> "cool".to_sym
+=> :cool
+>> "cool".to_sym.to_i
+=> 30185
+
+>> (1..5).to_a
+=> [1, 2, 3, 4, 5]
+>> (1...5).to_a
+=> [1, 2, 3, 4]
+
+>> string = "[Donald Duck]: I am Donald Duck and I am 0 years old."
+=> "[Donald Duck]: I am Donald Duck and I am 0 years old."
+>> string[3]
+=> 110
+>> string[3...13]
+=> "nald Duck]"
+>> string[3, 10]
+=> "nald Duck]"
+>> string[/ am .* am /]
+=> " am Donald Duck and I am "
+>> string[/ am .* am /] = " am AWESOME and I am "
+=> " am AWESOME and I am "
+>> string
+=> "[Donald Duck]: I am AWESOME and I am 0 years old."
+>> string[1, 6] = 'THE '
+=> "THE "
+>> string
+=> "[THE  Duck]: I am AWESOME and I am 0 years old."
+=> "[THE  Duck]: I am AWESOME and I am 0 years old."
+>> string.reverse
+=> ".dlo sraey 0 ma I dna EMOSEWA ma I :]kcuD  EHT["
+>> string.gsub(/\w+/, 'quack')
+=> "[quack  quack]: quack quack quack quack quack quack quack quack quack."
+>> string.scan(/\w+/) { |word| print "#{word}\n" }
+THE
+Duck
+I
+am
+AWESOME
+and
+I
+am
+0
+years
+old
+
+>> array = [1, 2, 3, 4, 5, 6]
+=> [1, 2, 3, 4, 5, 6]
+>> array[1, 3]
+=> [2, 3, 4]
+>> array[1...3]
+=> [2, 3]
+>> array.each { |elem| print "#{elem}\n" }
+1
+2
+3
+4
+5
+6
+=> [1, 2, 3, 4, 5, 6]
+>> array.map { |e| e * 2}
+=> [2, 4, 6, 8, 10, 12]
+>> array.select { |e| e.even? }
+=> [2, 4, 6]
+>> array.inject { |acc, i| acc + i }
+=> 21
+>> array.inject { |acc, i| acc * i }
+=> 720
+>> array.inject(0) { |acc, i| acc * i }
+=> 0
+
+>> replies = {1 => 2, 3 => 4, :boom => :headshot, :hot => :not}
+=> {:hot=>:not, 1=>2, 3=>4, :boom=>:headshot}
+>> replies.each { |k, v| print "#{k} = #{v}\n" }
+hot = not
+1 = 2
+3 = 4
+boom = headshot
+=> {:hot=>:not, 1=>2, 3=>4, :boom=>:headshot}
+>> replies[1]
+=> 2
+>> replies.keys
+=> [:hot, 1, 3, :boom]
+>> replies.values
+=> [:not, 2, 4, :headshot]
+>> replies.values_at([1, 3])
+=> [nil]
+
+>> Duck.superclass
+=> Object
+>> class LeetDuck < Duck
+>>   def initialize(name)
+>>     super "[1337]#{name}"
+>>   end
+>> end
+=> nil
+>> ld = LeetDuck.new "Donald"
+=> #<LeetDuck:0x1013b0950 @name="[1337]Donald", @age=0>
+>> ld.name
+=> "[1337]Donald"
+>> ld.quack
+=> "quack"
+
+>> module Aging
+>>   def age!
+>>     @age += 1
+>>   end
+>>   def age
+>>     @age
+>>   end
+>> end
+=> nil
+>> class Duck
+>>   include Aging
+>> end
+=> Duck
+>> ld.age
+=> 0
+>> ld.age!
+=> 1
+>> ld.age
+=> 1
+>> ld.age!
+=> 2
+
+>> ld2 = LeetDuck.new "Not Donald"
+=> #<LeetDuck:0x101603b08 @name="[1337]Not Donald", @age=0>
+>> class <<ld
+>>   def quack
+>>     "I don't quack"
+>>   end
+>> end
+=> nil
+>> ld.quack
+=> "I don't quack"
+>> ld2.quack
+=> "quack!"
+>> def ld.quack
+>>   "I really don't quack"
+>> end
+(irb):27: warning: redefine quack
+=> nil
+>> ld.quack
+=> "I really don't quack"
+
+>> class Duck
+>>   @ducks = 0
+>>   def self.add_duck
+>>     @ducks += 1
+>>   end
+>>   def self.ducks
+>>     @ducks
+>>   end
+>>   def initialize(name)
+>>     @name, @age = name, 0
+>>     Duck.add_duck
+>>   end
+>> end
+(irb):46: warning: method redefined; discarding old initialize
+=> nil
+>> Duck.ducks
+=> 0
+>> duckie = Duck.new 'Duckie!'
+=> #<Duck:0x1015aa648 @name="Duckie!", @age=0>
+>> Duck.ducks
+=> 1
+
+>> CSV
+NameError: uninitialized constant CSV
+  from (irb):206
+>> require 'csv'
+=> true
+>> CSV
+=> CSV

@@ -1,0 +1,169 @@
+h1. Ruby: the Programming Language
+
+h1. Numbers
+
+* Integers
+* Floating-point
+* Arithmetic: +, *, **
+* Division: integer division, floating-point division
+
+h1. Strings
+
+* Literals
+* Interpolation
+* Operators: +, *
+
+h1. Booleans
+
+* Results of Integer comparison: <, >
+* Literals: true, false
+* Operators: !, ||, &&
+
+h1. Local Variables
+
+* Naming
+* Assignment, recall
+
+h1. Constants
+
+* Naming
+* Assignment, recall
+* Redefining
+
+h1. Methods
+
+* Definition: sum, using return
+* Calling: familiar syntax sum(3, 5)
+* Return value is last expression: shorter sum
+* Relaxed calling: sum 3, 5
+
+h1. Useful "built-ins"
+
+* print: strings, integers
+* print with "\n"
+* p for debugging
+
+h1. Classes
+
+* Syntax: Duck with quack
+* Instantiate duckie
+* Call method
+
+h1. Classes are Open
+
+* Open Duck, define walk
+* Call walk on duckie
+
+h1. Constructors
+
+* Method name: initialize
+* Define printing constructor in Duck
+* Reinstantiate duckie
+
+h1. Instance Vars
+
+* Variable naming: @name, @age
+* Redefine Duck constructor
+* Call Duck constructor with arguments
+* Instance variables are not methods
+* Instance variables are not globally accessible
+
+h1. Everything Is an Object
+
+* 3.even?
+* 3.odd?
+* "abcd".length
+* 3.class
+
+h1. Self
+
+* Like this in JavaScript, C++, Java
+* Open Fixnum, define is_leet? as self == 1337
+* Demonstrate with 3.is_leet? and 1337.is_leet?
+
+h1. If
+
+* Implement max inline
+* Operator form ? :
+
+h1. While
+
+* Counting using local variable
+
+h1. Blocks
+
+* No arguments: times
+* 1 argument: upto
+* Break, do...end instead of braces: loop
+* yield: Duck.introduce
+* next, 2 arguments: call Duck.introduce
+
+h1. Symbols
+
+* Like interned strings in Java
+* Literals
+* to_i, to_s on symbols
+* to_sym on Strings
+* Symbols are interned forever: "cool".to_sym.to_i
+
+h1. Ranges
+
+* Literals + to_a: .. and ...
+
+h1. Strings II
+
+* []: index, range, regexp
+* []= replaces
+* Useful: gsub, scan
+
+h1. Arrays
+
+* Literals
+* []: numbers, ranges
+* []= replaces, expands array
+* .length
+* Functional staples: map, select, inject
+
+h1. Hashes
+
+* Literals
+* []
+* Methods: keys, values, values_at
+* Iteration: each
+
+h1. Inheritance
+
+* Single inheritance: Duck.superclass
+* LeetDuck < Duck, overrides constructor
+* Instantiate LeetDuck, show it has Duck methods
+
+h1. Modules
+
+* Containers for functionality
+* Aging, defines age! and age
+* include Aging in Duck
+* Call age and age! in LeetDuck instance
+
+h1. Inheritance vs Modules
+
+* Single inheritance
+* Many modules can be included
+* Modules cannot define constructors
+
+h1. Eigenclass
+
+* Instantiate LeetDuck again
+* Override quack in an instance
+* Show that instance's quack changed, class' quack didn't change
+
+h1. Classes are Objects
+
+* Inside "class", self is the class object
+* So classes have instance variables, class methods
+* Add instance counting to Duck's constructor
+* Reinstantiate duckie, demonstrate
+
+h1. Require
+
+* Test for CSV, require 'csv', test again
+* Mention it works for own files as well
