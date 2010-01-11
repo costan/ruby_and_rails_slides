@@ -1,30 +1,48 @@
+# Create the Rails project on scripts.
 pwnage:~ victor$ ssh costan@linux.mit.edu
 dr-wily:~> scripts-rails six470prep
 Please enter either '1' or '2' (without quotes): 1
 Desired address: http://costan.scripts.mit.edu/sixprep
 Press [enter] to continue with the install.
 
+# Verify the production site on scripts.
 Firefox > http://costan.scripts.mit.edu/sixprep/
 
+# Copy the project on your computer.
 pwnage:~ victor$ cd Documents/workspace
 pwnage:workspace victor$ scp -r costan@linux.mit.edu:~/web_scripts/sixprep .
 pwnage:workspace victor$ cd sixprep/
-pwnage:sixprep victor$ rake rails:freeze:edge RELEASE=2.3.5
 
-pwnage:workspace victor$ scp -r . costan@linux.mit.edu:~/web_scripts/sixprep
+# Variant A: go with the old Rails
+pwnage:sixprep victor$ grep VERSION config/environment.rb 
+RAILS_GEM_VERSION = '2.3.2' unless defined? RAILS_GEM_VERSION
+pwnage:sixprep victor$ sudo gem install rails --version 2.3.2
 
-dr-wily:~> ssh -k costan@scripts
+# Variant B: vendor the new Rails
+Patch config/environment.rb:
+  config.gem 'rack', :version => '~> 1.0.1'
+pwnage:sixprep victor$ rake rails:freeze:gems VERSION=2.3.5
+pwnage:sixprep victor$ rake gems:unpack:dependcies
 
+pwnage:sixprep victor$ script/server
 
-
+# Hook up the project into RadRails.
 Eclipse > File > New > Project ... > Rails Project
 Project name: sixprep
 Uncheck "Generate Rails application skeleton"
 (optional) Uncheck "automatically start server after project is created"
 
+# Make a change.
+pwnage:sixprep victor$ script/generate scaffold Movie name:string rating:integer comment:text
 
-
-Your application is located in:
-  /mit/costan/web_scripts/sixprep/
-To run programs like rake or script/generate, run
-  'ssh -k costan@scripts' and cd to the above directory.
+# Deploy the new code.
+pwnage:sixprep victor$ rm log/*
+pwnage:sixprep victor$ scp -r . costan@linux.mit.edu:~/web_scripts/sixprep
+pwnage:sixprep victor$ ssh costan@linux.mit.edu
+dr-wily:~> ssh -k costan@scripts
+[costan@bees-knees]:~/web_scripts$ cd sixprep/
+[costan@bees-knees]:~/web_scripts/sixprep$ rake gems:build
+[costan@bees-knees]:~/web_scripts/sixprep$ rake db:migrate
+[costan@bees-knees]:~/web_scripts$ ps aux | grep costan | grep ruby
+costan   32005  5.2  0.5 127784 36008 ?        S    08:02   0:02 /usr/bin/ruby dispatch.fcgi
+[costan@bees-knees]:~/web_scripts$ kill 32005
