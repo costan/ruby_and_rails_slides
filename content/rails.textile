@@ -4,6 +4,7 @@ h1. Obligatory Show-Off
 
 * This video is used by everyone to show Rails' awesomeness
 * How to build a blog, in 15 minutes
+* Uses Rails 2.2, this lecture shows Rails 3.0.
 
 http://media.rubyonrails.org/video/rails_blog_2.mov
 

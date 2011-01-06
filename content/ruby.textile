@@ -1,5 +1,8 @@
 h1. Ruby: the Programming Language
 
+Play along with the script at
+*{font-size: 3em; }http://bit.ly/eFs9wa*
+
 h1. Numbers
 
 * Integers

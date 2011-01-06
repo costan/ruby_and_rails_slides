@@ -1,0 +1,82 @@
+# Build the app.
+rails new jobs
+cd jobs
+bundle install
+
+# Start a server, keep it around.
+rails s
+
+# Open new terminal, start data modeling.
+rails g JobKind name:string
+rails g scaffold job job_kind_id:integer location:text company:text
+
+# Show off scaffolds.
+
+
+#
+# Data population.
+# 
+
+# Library for scraping.
+gem install mechanize
+
+# Start playing.
+rails c
+
+#
+# Inside the Rails console. This is irb + your rails code.
+#
+
+require 'rubygems'
+require 'mechanize'
+m = Mechanize.new
+
+# Find out how to make Mechanize pretend it's Firefox.
+(m.methods.sort - Object.methods)
+(m.methods.sort - Object.methods).map(&:to_s).select { |m| /agent/ =~ m }
+m.user_agent = 'firefox'
+(Mechanize.methods.sort - Object.methods).sort
+Mechanize.constants.sort
+Mechanize::AGENT_ALIASES
+
+# Finally! Let's set the alias and see the magic string.
+m.user_agent_alias = 'Mac FireFox'
+m.user_agent
+
+# Time to get hacking. Pull out your Firebugs!
+doc = m.get 'http://monster.com'
+doc.root
+doc.root.css('#browseJobs')
+doc.root.css('#browseJobs a[name=bjcat_link]')
+doc.root.css('#browseJobs a[name=bjcat_link]').map(&:inner_text)
+doc.root.css('#browseJobs a[name=bjcat_link]').map { |e| [e.attr('href')] }
+doc.root.css('#browseJobs a[name=bjcat_link]').map { |e| [e.inner_text, e.attr('href')] }
+
+# We have categories!!
+h = Hash[doc.root.css('#browseJobs a[name=bjcat_link]').map { |e| [e.inner_text, e.attr('href')] }]
+h.first
+h.first[1]
+url = h.first[1]
+
+# Let's get locations and jobs.
+doc = m.get url
+rows = doc.css('#jobSearchresult table tr')
+rows.first.inner_html
+rows.first.css('div.companyName').attr('title')
+rows.first.css('div.jobPlace').attr('title').to_s
+
+# We have parsing code. Move it into the models.
+
+reload!
+
+# Show data imported into scaffold UI.
+
+# Build profile.
+rails g scaffold Profile name:text job_kind_id:integer.
+# profile.new -> select job kind
+# profile.show -> job search
+
+# Use session to store profile.
+rails g controller Session
+
+
