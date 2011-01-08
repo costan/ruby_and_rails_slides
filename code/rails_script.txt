@@ -8,10 +8,9 @@ rails s
 
 # Open new terminal, start data modeling.
 rails g JobKind name:string
-rails g scaffold job job_kind_id:integer location:text company:text
+rails g scaffold Job job_kind_id:integer location:text company:text
 
 # Show off scaffolds.
-
 
 #
 # Data population.
@@ -79,4 +78,4 @@ rails g scaffold Profile name:text job_kind_id:integer.
 # Use session to store profile.
 rails g controller Session
 
-
+# (incomplete)

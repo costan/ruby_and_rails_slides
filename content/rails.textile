@@ -1,5 +1,15 @@
 h1. Rails: the Web Application Framework
 
+h1. Live Coding
+
+# Scaffolds
+# Scrap from Monster.com (for demo purposes only!)
+# MVC (Model-View-Controller)
+# Session
+
+Script (incomplete) at
+*{font-size: 3em; }http://bit.ly/gnTkOW*
+
 h1. Obligatory Show-Off
 
 * This video is used by everyone to show Rails' awesomeness
@@ -8,11 +18,10 @@ h1. Obligatory Show-Off
 
 http://media.rubyonrails.org/video/rails_blog_2.mov
 
-
-h1. Working with Scripts
-
-
 h1. Resources
 
-Quick Introduction to Ruby: "Google why's poignant guide to ruby":http://www.google.com/search?q=why's+poignant+guide+to+ruby
-Rails Guides: "http://guides.rubyonrails.org/":http://guides.rubyonrails.org/
+* Ruby in 15 minutes: "TryRuby":http://tryruby.org/
+* Quick Introduction to Ruby: "Google why's poignant guide to ruby":http://www.google.com/search?q=why's+poignant+guide+to+ruby
+* Rails Guides: "http://guides.rubyonrails.org/":http://guides.rubyonrails.org/
+* Intro Screencasts: "Rails 3 Screencasts":http://rubyonrails.org/screencasts/rails3
+* Advanced Screencasts: "RailsCasts":http://railscasts.com/

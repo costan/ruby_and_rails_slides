@@ -15,4 +15,3 @@ Slides and Code
 
 * Source code: http://github.com/costan/ruby_and_rails_slides/
 * Pull requests (patches) are welcome!
-* Website: in @code/pwnage@
