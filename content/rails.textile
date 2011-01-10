@@ -1,5 +1,9 @@
 h1. Rails: the Web Application Framework
 
+<div style="text-align: center;">
+!{height:40%}images/ror_logo.png!
+</div>
+
 h1. Live Coding
 
 # Scaffolds
